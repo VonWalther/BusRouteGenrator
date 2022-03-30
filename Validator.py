@@ -10,28 +10,32 @@ def load_in_solution_file(solution_file):
     return solutions
 
 
-def build_city_matrix(block):
-    city_size = 1000
-    streets_on_the = 50
-    blocks_per_row = int(city_size / streets_on_the)
-    matrix_size = block * blocks_per_row
-    city_matrix = []
-    for i in range(matrix_size):  # Row
-        city_row = []
-        if i % block == 0:
-            # Add a street to matrix.
-            for j in range(1 + matrix_size + int(matrix_size/block)):
-                city_row.append(".")
-            city_matrix.append(city_row)
-            city_row = []
-        for j in range(matrix_size): # Column
-            if j % block == 0:
-                city_row.append('.')
-            city_row.append("#")
-        city_row.append('.')
-        city_matrix.append(city_row)
+def build_city_matrix(size=200):
+    grid = []
+    for i in range(size):
+        row = []
+        for j in range(size):
+            row.append("#")
+        grid.append(row)
+    return grid
 
-    return city_matrix
+
+def get_grid_coordinates(str_cord):
+    string_list = str_cord.split()
+    if(string_list[0].isalnum()):
+        cord = (int(str_cord[0]),int(str_cord[1]))
+    else:
+        cord = (int(str_cord[1]),int(str_cord[2]), str_cord[0])
+
+    return cord
+
+
+def place_location(grid, school, type = 'X'):
+    cord = get_grid_coordinates(school)
+    print(cord)
+    grid[cord[0]][cord[1]] = type
+
+    return grid
 
 
 def draw_grid(city_matrix):
@@ -50,13 +54,13 @@ def draw_grid(city_matrix):
     print(bottom)
 
 
-
 if __name__ == '__main__':
     student_address = load_in_grid_file("gridCity.txt")
     address_busbarn = student_address.pop(0)
+    print(address_busbarn)
     address_school = student_address.pop(0)
 
-    block_size = 2
-
-    the_city = build_city_matrix(block_size)
-    draw_grid(the_city)
+    city_grid = build_city_matrix()
+    place_location(city_grid, address_school, 'S')
+    place_location(city_grid, address_busbarn, 'B')
+    draw_grid(city_grid)
