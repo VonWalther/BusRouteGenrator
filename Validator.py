@@ -10,42 +10,45 @@ def load_in_solution_file(solution_file):
     return solutions
 
 
-def build_city_matrix(block_size):
+def build_city_matrix(block):
     city_size = 1000
     streets_on_the = 50
     blocks_per_row = int(city_size / streets_on_the)
-    matrix_size = block_size * blocks_per_row
+    matrix_size = block * blocks_per_row
     city_matrix = []
     for i in range(matrix_size):  # Row
         city_row = []
+        if i % block == 0:
+            # Add a street to matrix.
+            for j in range(1 + matrix_size + int(matrix_size/block)):
+                city_row.append(".")
+            city_matrix.append(city_row)
+            city_row = []
         for j in range(matrix_size): # Column
+            if j % block == 0:
+                city_row.append('.')
             city_row.append("#")
+        city_row.append('.')
         city_matrix.append(city_row)
-    city_matrix[3][5] = "X"
+
     return city_matrix
 
 
-def draw_grid(city_matrix, block_size):
+def draw_grid(city_matrix):
     num_buildings = len(city_matrix[0])
-    street_length = num_buildings + int(num_buildings/(block_size-1))s
-    street = "." * (street_length)
-    top = "/" + "-" * street_length + "\\"
-    bottom = "\\" + "-" * street_length + "/"
-    # Start Printing the grid
+    street_length = num_buildings
+    top = "/" + "-" * (street_length + 2) + "\\"
+    bottom = "\\" + "-" * (street_length + 2) + "/"
+
     print(top)
     for i in range(len(city_matrix)):
-        # Every third line, print a street.
-        if i % (block_size ) == 0:
-            line = '|..' + street + "..|\n|"
-        else:
-            line = "|"
+        line = "| "
         for j in range(len(city_matrix[i])):
-            if j % (block_size) == 0:
-                line = line + '..'
             line = line + city_matrix[i][j]
-        line = line + "..|"
+        line = line + " |"
         print(line)
     print(bottom)
+
 
 
 if __name__ == '__main__':
@@ -56,4 +59,4 @@ if __name__ == '__main__':
     block_size = 2
 
     the_city = build_city_matrix(block_size)
-    draw_grid(the_city, block_size)
+    draw_grid(the_city)
