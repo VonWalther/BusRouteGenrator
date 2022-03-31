@@ -10,7 +10,7 @@ def load_in_solution_file(solution_file):
     return solutions
 
 
-def build_city_matrix(size=200):
+def build_city_matrix(size=100):
     grid = []
     for i in range(size):
         row = []
@@ -21,19 +21,21 @@ def build_city_matrix(size=200):
 
 
 def get_grid_coordinates(str_cord):
-    string_list = str_cord.split()
-    if(string_list[0].isalnum()):
-        cord = (int(str_cord[0]),int(str_cord[1]))
+    string_list = str_cord.split(" ")
+    if string_list[0].isnumeric():
+        cord = (int(string_list[0]), int(string_list[1]))
     else:
-        cord = (int(str_cord[1]),int(str_cord[2]), str_cord[0])
-
+        cord = (int(string_list[1]), int(string_list[2]), string_list[0])
     return cord
 
 
-def place_location(grid, school, type = 'X'):
-    cord = get_grid_coordinates(school)
-    print(cord)
-    grid[cord[0]][cord[1]] = type
+def place_location(grid, data_point, symbol='X'):
+    cord = get_grid_coordinates(data_point)
+    if symbol == 'X':
+        name = str(cord[2])
+        grid[cord[0]][cord[1]] = name[0]
+    else:
+        grid[cord[0]][cord[1]] = symbol
 
     return grid
 
@@ -57,10 +59,11 @@ def draw_grid(city_matrix):
 if __name__ == '__main__':
     student_address = load_in_grid_file("gridCity.txt")
     address_busbarn = student_address.pop(0)
-    print(address_busbarn)
     address_school = student_address.pop(0)
 
     city_grid = build_city_matrix()
     place_location(city_grid, address_school, 'S')
     place_location(city_grid, address_busbarn, 'B')
+    for student in student_address:
+        place_location(city_grid, student)
     draw_grid(city_grid)

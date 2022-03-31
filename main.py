@@ -6,7 +6,8 @@
 import random
 
 maxStudents = 200
-gridSize = 200
+gridSize = 100
+streets_on = 5
 xyFavoring = 0.5
 name_file = "names.txt"
 name_output_file = "gridCity.txt"
@@ -49,7 +50,7 @@ def create_data_file(h_list, output_name=name_output_file):
 
 # Returns an address pair in Grid City
 def get_address_pair():
-    num_street = random.randrange(0, gridSize, 50)
+    num_street = random.randrange(0, gridSize, streets_on)
     num_address: int = random.randint(0, gridSize)
     x_or_y = random.random()
     #
