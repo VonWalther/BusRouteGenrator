@@ -6,8 +6,8 @@
 import random
 
 maxStudents = 200
-gridSize = 100
-streets_on = 5
+gridSize = 1001
+streets_on = 50
 xyFavoring = 0.5
 name_file = "names.txt"
 name_output_file = "gridCity.txt"
@@ -40,9 +40,11 @@ def assign_student_housing(num):
 # Create Text File Output of Student Housing
 def create_data_file(h_list, output_name=name_output_file):
     out = open(output_name, "w", encoding="utf-8")
+    # Create the School and Bus Barn Address
     for i in range(2):
         address = get_address_pair()
         out.write(address + '\n')
+    # Create the list of student at home address.
     for i in h_list:
         out.write(i + '\n')
     out.close()

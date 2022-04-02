@@ -1,0 +1,55 @@
+ROUTE ONE
+Bus 1: Found the nearest street from bus barn to [700, 950]-> travelled on the x point 700 in the y direction to 400 and picked up the student
+-> travelled on the x point 700 in the y direction to 950 and picked up the student
+ -> travelled on the y point 950 in the x direction to 550 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 2: Found the nearest street from bus barn to [700, 950] -> travelled on the y point 950 in the x direction to 200 and picked up the student
+ -> travelled on the y point 950 in the x direction to 750 and picked up the student
+ -> travelled on the y point 950 in the x direction to 900 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 3: Found the nearest street from bus barn to [700, 950]-> travelled on the x point 700 in the y direction to 300 and picked up the student
+-> travelled on the x point 700 in the y direction to 750 and picked up the student
+-> travelled on the x point 700 in the y direction to 850 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 4: Found the nearest street from bus barn to [700, 950]-> travelled on the x point 700 in the y direction to 750 and picked up the student
+ -> travelled on the y point 950 in the x direction to 500 and picked up the student
+ -> travelled on the y point 950 in the x direction to 200 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 5: Found the nearest street from bus barn to [700, 950]-> travelled on the x point 700 in the y direction to 600 and picked up the student
+-> travelled on the x point 700 in the y direction to 600 and picked up the student
+ -> travelled on the y point 950 in the x direction to 350 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 6: Found the nearest street from bus barn to [700, 950]-> travelled on the x point 700 in the y direction to 1000 and picked up the student
+ -> travelled on the y point 950 in the x direction to 350 and picked up the student
+ -> travelled on the y point 950 in the x direction to 350 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 7: Found the nearest street from bus barn to [700, 950]-> travelled on the x point 700 in the y direction to 550 and picked up the student
+ -> travelled on the y point 950 in the x direction to 700 and picked up the student
+-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+
+Distance 0
+ROUTE TWO
+Bus 1: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 2: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 3: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 4: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 5: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 6: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+Bus 7: Found the nearest street from bus barn to [700, 950]-> travelled on the y point 950 in the x direction to 500 and reached the school
+
+
+Distance 0
+the better set of routes is ROUTE TWO

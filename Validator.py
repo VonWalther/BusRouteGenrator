@@ -1,16 +1,25 @@
-def load_in_grid_file(input_file):
+# ************************************ Utility Functions ********************************************
+def load_in_file(input_file):
     with open(input_file) as f_grid:
-        address = f_grid.readlines()
-    return address
+        string_list = f_grid.readlines()
+    return string_list
 
 
-def load_in_solution_file(solution_file):
-    with open(solution_file) as f_sol:
-        solutions = f_sol.readlines()
-    return solutions
+def strip_empties_from_list(d_list, unwanted):
+    output = []
+    for el in d_list:
+        if el not in (unwanted):
+            output.append(el)
+    return output
 
+def remove_new_lines(d_list):
+    output = []
+    for el in d_list:
+        output.append(el.replace('\n',''))
+    return output
 
-def build_city_matrix(size=100):
+# ************************************ Graphics and Visualisation ************************************
+def build_city_matrix(size=1001):
     grid = []
     for i in range(size):
         row = []
@@ -56,14 +65,26 @@ def draw_grid(city_matrix):
     print(bottom)
 
 
+# **************************************** Bus Routes Validation *******************************************
+
+
 if __name__ == '__main__':
-    student_address = load_in_grid_file("gridCity.txt")
+    student_address = load_in_file("gridCity_one.txt")
     address_busbarn = student_address.pop(0)
     address_school = student_address.pop(0)
+    # print(student_address)
 
     city_grid = build_city_matrix()
-    place_location(city_grid, address_school, 'S')
-    place_location(city_grid, address_busbarn, 'B')
+    city_grid = place_location(city_grid, address_school, 'S')
+    city_grid = place_location(city_grid, address_busbarn, 'B')
     for student in student_address:
-        place_location(city_grid, student)
-    draw_grid(city_grid)
+        place_location(city_grid, student)  # Yes I know, abusing mutability here, or maybe above.
+    # draw_grid(city_grid)
+
+    # Load in Bus Routs
+    bus_routs = load_in_file("gridCityBusses.txt")
+    bus_routs = strip_empties_from_list(bus_routs, '\n')
+    bus_routs = remove_new_lines(bus_routs)
+
+
+    print(bus_routs)
